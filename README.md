@@ -1,8 +1,8 @@
 # dashboard-streamlit
-  - Streamlit cheatsheet (https://docs.streamlit.io/library/cheatsheet)
-  - streamlit documentation (https://docs.streamlit.io/)
+    - Streamlit cheatsheet (https://docs.streamlit.io/library/cheatsheet)
+    - streamlit documentation (https://docs.streamlit.io/)
 
-
+## Create a streamlit dashboard
 1. deploy virtual machine
 2. update virtual machine
     - ``` sudo apt-get update```
