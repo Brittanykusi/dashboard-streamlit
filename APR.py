@@ -4,23 +4,18 @@ import streamlit as st
 
 
 # load data
-LAST_VISIT_DATE_COLUMN = 'date'
-DATA = ('streamlit_data.csv')
+LastMDVisit = 'lastmdvisit'
+RAW_DATA = ('streamlit_data.csv')
 
 def load_data(nrows):
-    data = pd.read_csv(DATA, nrows=nrows)
+    data = pd.read_csv(RAW_DATA, nrows=nrows)
     lowercase = lambda x: str(x).lower()
     data.rename(lowercase, axis='columns', inplace=True)
-    data[LAST_VISIT_DATE_COLUMN] = pd.to_datetime(data[LAST_VISIT_DATE_COLUMN])
+    data[LastMDVisit] = pd.to_datetime(data[LastMDVisit])
     return data
 
-# Create a text element and let the reader know the data is loading.
-data_load_state = st.text('Loading data...')
 # Load 10,000 rows of data into the dataframe.
-@st.cache
-data = load_data(10000)
-# Notify the reader that the data was successfully loaded.
-data_load_state.text("Done! (using st.cache)")
+data = load_data(5000)
 
 # title
 st.title('Active Patient Report')
@@ -28,5 +23,17 @@ st.title('Active Patient Report')
 st.subheader('Raw data')
 st.write(data)
 
+#subheader
+st.subheader('Number of appts by day of the month')
+# generate histogram
+hist_values = np.histogram(data[LastMDVisit].dt.day, 
+        bins=31, range=(0,31))[0]
+# draw histogram
+st.bar_chart(hist_values)
+
+#subheader
+st.subheader('Gender Counts')
+chart_data = st.bar_chart(data=data['gender'], width=0, 
+        height=0, use_container_width=True)
 
 
