@@ -5,7 +5,7 @@ import streamlit as st
 
 # load data
 LAST_VISIT_DATE_COLUMN = 'date'
-DATA = ('/Users/brittanykusi-gyabaah/Documents/dashboard-streamlit/streamlit_data.csv')
+DATA = ('streamlit_data.csv')
 
 def load_data(nrows):
     data = pd.read_csv(DATA, nrows=nrows)
