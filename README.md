@@ -1,6 +1,6 @@
 # dashboard-streamlit
-  Streamlit cheatsheet (https://docs.streamlit.io/library/cheatsheet)
-  streamlit documentation (https://docs.streamlit.io/)
+  - Streamlit cheatsheet (https://docs.streamlit.io/library/cheatsheet)
+  - streamlit documentation (https://docs.streamlit.io/)
 
 
 1. deploy virtual machine
